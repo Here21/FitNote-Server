@@ -77,3 +77,6 @@ typings/
 # code editor
 .idea
 .vscode
+
+# config.js should be local
+/config/config.js
