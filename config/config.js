@@ -4,13 +4,13 @@
  * @date 2018/11/17
  */
 exports.db = {
-  user: 'user',
-  password: 'password',
-  database: 'database',
+  user: 'root',
+  password: '123456',
+  database: 'FitNote',
   host: '127.0.0.1',
   charset: 'utf8mb4' // support emoji from wechat
 };
 
 exports.server = {
-  port: 3700
+  port: 6666
 };
