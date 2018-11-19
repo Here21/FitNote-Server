@@ -1,5 +1,5 @@
 const dao = require('./dao');
-const { Success, Error } = require('../../util/message_bean');
+const { Success, Error } = require('../../util/messageBean');
 const C = require('../../util/const');
 
 exports.getData = async ctx => {

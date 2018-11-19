@@ -9,7 +9,7 @@ const Promise = require('bluebird');
 const config = require('../config/config.js');
 const logger = require('./logger');
 const C = require('./const.js');
-const { Error } = require('./message_bean');
+const { Error } = require('./messageBean');
 
 const pool = mysql.createPool(config.db);
 
