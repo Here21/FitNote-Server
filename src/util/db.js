@@ -6,7 +6,7 @@
 
 const mysql = require('mysql');
 const Promise = require('bluebird');
-const config = require('../config/config.js');
+const config = require('../../config/config.js');
 const logger = require('./logger');
 const C = require('./const.js');
 const { Error } = require('./messageBean');

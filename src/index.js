@@ -1,11 +1,12 @@
 const Koa = require('koa');
-const config = require('./config/config.js');
+const config = require('../config/config.js');
 const path = require('path');
 const serve = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
 const glob = require('glob');
 const logger = require('./util/logger');
+const ErrorHandler = require('./middleware/ErrorHandler');
 
 const app = new Koa();
 
@@ -18,6 +19,9 @@ app.use(cors({
   maxAge: 86400
 }));
 app.use(bodyParser());
+
+// middleware
+app.use(ErrorHandler);
 
 // routers
 let routers = glob.sync('module/*/router.js');
