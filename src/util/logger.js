@@ -1,6 +1,8 @@
 const log4js = require('log4js');
 const path = require('path');
 
+// TODO: 处理path.join路径
+
 log4js.configure({
   appenders: {
     console: {

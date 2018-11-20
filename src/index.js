@@ -9,7 +9,7 @@ const logger = require('./util/logger');
 const ErrorHandler = require('./middleware/ErrorHandler');
 
 const app = new Koa();
-
+// TODO: 处理路径
 global.rootDir = `${path.resolve(__dirname)}/`;
 
 app.use(serve(path.join(__dirname, '/../public')));
