@@ -1,8 +1,6 @@
 const log4js = require('log4js');
 const path = require('path');
 
-// TODO: 处理path.join路径
-
 log4js.configure({
   appenders: {
     console: {
@@ -10,7 +8,7 @@ log4js.configure({
     },
     koa: {
       type: 'dateFile',
-      filename: path.join(__dirname, '/../logs/'),
+      filename: path.join(__dirname, '../../logs/'),
       pattern: 'yyyy-MM-dd.log',
       alwaysIncludePattern: true
     }
