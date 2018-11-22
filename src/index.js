@@ -6,6 +6,9 @@ const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors');
 const logger = require('./util/logger');
 const ErrorHandler = require('./middleware/ErrorHandler');
+const ResponseTime = require('./middleware/ResponseTime');
+const DecodeToken = require('./middleware/DecodeToken');
+const AccessLogger = require('./middleware/AccessLogger');
 
 const initRouter = require('./module');
 
@@ -22,6 +25,9 @@ app.use(bodyParser());
 
 // middleware
 app.use(ErrorHandler);
+app.use(ResponseTime);
+app.use(DecodeToken);
+app.use(AccessLogger);
 
 // router
 initRouter(app);
