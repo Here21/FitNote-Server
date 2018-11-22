@@ -14,3 +14,8 @@ exports.db = {
 exports.server = {
   port: 6666
 };
+
+exports.security = {
+  JWT_SECRET: '!@#$318&^ghh76521jfdjaafd224fdjak&&%&$',
+  JWT_APP_TOKEN_EXPIRE_TIME: 30 * 24 * 3600 // day * hour * second
+};
