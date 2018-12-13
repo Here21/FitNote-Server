@@ -29,4 +29,4 @@ exports.getOneById = async ctx => {
   } catch (e) {
     ctx.body = new Error(C.ERROR_CODE.DB_ERROR, '获取数据发生错误', e);
   }
-}
+};

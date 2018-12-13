@@ -12,10 +12,10 @@ async function _checkUserType(ctx, next, userType = 0) {
   }
 }
 
-exports.check = async(ctx, next) => {
+exports.check = async (ctx, next) => {
   await _checkUserType(ctx, next);
 };
 
-exports.checkAdmin = async(ctx, next) => {
+exports.checkAdmin = async (ctx, next) => {
   await _checkUserType(ctx, next, C.USER_TYPE.ADMIN);
 };

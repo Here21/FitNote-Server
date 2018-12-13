@@ -1,6 +1,5 @@
 const BaseDao = require('../../util/BaseDao');
 const db = require('../../util/db');
-const C = require('../../util/const');
 
 const tableName = 'tuser';
 const columns = [

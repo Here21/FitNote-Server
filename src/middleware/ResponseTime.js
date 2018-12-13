@@ -4,7 +4,7 @@
  * @date 2018/11/22
  */
 
-module.exports = async(ctx, next) => {
+module.exports = async (ctx, next) => {
   const start = Date.now();
   await next();
   const ms = Date.now() - start;

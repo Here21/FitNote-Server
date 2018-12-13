@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const logger = require('../util/logger');
 
-module.exports = async(ctx, next) => {
+module.exports = async (ctx, next) => {
   logger.debug('[%s]: %s', ctx.method, ctx.url);
   const start = Date.now();
   const params = {

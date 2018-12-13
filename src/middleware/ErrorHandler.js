@@ -7,7 +7,7 @@ const C = require('../util/const');
 const logger = require('../util/logger');
 const { Error } = require('../util/messageBean');
 
-module.exports = async(ctx, next) => {
+module.exports = async (ctx, next) => {
   try {
     await next();
   } catch (e) {

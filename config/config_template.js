@@ -18,5 +18,6 @@ exports.server = {
 // secret, token etc.
 exports.security = {
   JWT_SECRET: 'jwt_secret_token',
-  JWT_APP_TOKEN_EXPIRE_TIME: 30 * 24 * 3600 // day * hour * second
+  JWT_APP_TOKEN_EXPIRE_TIME: 30 * 24 * 3600, // day * hour * second
+  ENCRYPT_KEY: 'fit_note'
 };

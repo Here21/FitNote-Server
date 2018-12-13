@@ -1,6 +1,7 @@
 const crypto = require('crypto');
+const config = require('../../config/config');
 
-const md5Key = 'fit_note'.toString('ascii');
+const md5Key = config.security.ENCRYPT_KEY.toString('ascii');
 
 exports.MD5 = function (clearText) {
   const md5 = crypto.createHmac('md5', md5Key);

@@ -6,7 +6,7 @@
 
 const jwt = require('../util/jwt');
 
-module.exports = async(ctx, next) => {
+module.exports = async (ctx, next) => {
   const { token } = ctx.headers;
   ctx.state.user = jwt.decodeToken(token);
   await next();
