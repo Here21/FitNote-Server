@@ -7,7 +7,7 @@
 const jwt = require('../util/jwt');
 
 module.exports = async (ctx, next) => {
-  const { token } = ctx.headers;
+  const token = ctx.cookies.get('token');
   ctx.state.user = jwt.decodeToken(token);
   await next();
 };

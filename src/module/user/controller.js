@@ -22,7 +22,7 @@ exports.login = async ctx => {
   }
   const token = jwt.create({ id: user.id, type: user.type });
   ctx.cookies.set('token', token, { httpOnly: false, maxAge: config.security.JWT_APP_TOKEN_EXPIRE_TIME });
-  ctx.body = new Success({ token, type: user.type, id: user.id });
+  ctx.body = new Success({ type: user.type, id: user.id });
 };
 
 exports.getInfo = async ctx => {
