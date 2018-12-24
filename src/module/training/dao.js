@@ -1,9 +1,9 @@
 const BaseDao = require('../../util/BaseDao');
 const db = require('../../util/db');
 
-const tableName = 'tactions';
+const tableName = 'ttraining_record';
 const columns = [
-  'name', 'desc', 'record_type', 'part'
+  'action_id', 'u_id', 'weight', 'frequency', 'duration'
 ];
 
 class Dao extends BaseDao {

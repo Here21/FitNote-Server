@@ -2,14 +2,16 @@ const dao = require('./dao');
 const { Success, Error } = require('../../util/messageBean');
 const C = require('../../util/const');
 
-exports.addAction = async ctx => {
+exports.addTraining = async ctx => {
   const data = ctx.request.body;
+  const { user } = ctx.state;
+  data.u_id = user.id;
   const id = await dao.add(data);
-  ctx.body = new Success({ id }, '添加成功');
+  ctx.body = new Success({ id }, '添加训练成功');
 };
 
-exports.updateAction = async ctx => {
-  const data = ctx.request.body;
+exports.updateTraining = async ctx => {
+  const data = ctx.body;
   const { id } = ctx.params;
   const action = await dao.getOne(id);
   if (action) {
@@ -20,11 +22,11 @@ exports.updateAction = async ctx => {
   }
 };
 
-exports.getActionsList = async ctx => {
+exports.getTrainingList = async ctx => {
 
 };
 
-exports.getAction = async ctx => {
+exports.getTraining = async ctx => {
   const { id } = ctx.params;
   const result = await dao.selectOne({ del: 0, id });
   ctx.body = new Success({ ...result });
