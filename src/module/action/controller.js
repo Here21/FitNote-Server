@@ -21,7 +21,8 @@ exports.updateAction = async ctx => {
 };
 
 exports.getActionsList = async ctx => {
-
+  const result = await dao.select({ del: 0 });
+  ctx.body = new Success(result);
 };
 
 exports.getAction = async ctx => {

@@ -3,7 +3,7 @@ const db = require('../../util/db');
 
 const tableName = 'tactions';
 const columns = [
-  'name', 'desc', 'record_type', 'part'
+  'name', 'desc', 'record', 'part'
 ];
 
 class Dao extends BaseDao {
