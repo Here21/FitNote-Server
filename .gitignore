@@ -80,3 +80,5 @@ typings/
 
 # config.js should be local
 /config/config.js
+
+test
