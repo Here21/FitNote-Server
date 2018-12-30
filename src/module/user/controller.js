@@ -21,7 +21,8 @@ exports.login = async ctx => {
     return;
   }
   const token = jwt.create({ id: user.id, type: user.type });
-  ctx.cookies.set('token', token, { httpOnly: false, maxAge: config.security.JWT_APP_TOKEN_EXPIRE_TIME });
+  // maxAge 单位为毫秒
+  ctx.cookies.set('token', token, { httpOnly: false, maxAge: config.security.JWT_APP_TOKEN_EXPIRE_TIME * 1000 });
   ctx.body = new Success({ type: user.type, id: user.id });
 };
 
