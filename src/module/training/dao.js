@@ -7,7 +7,7 @@ const columns = [
 ];
 
 class Dao extends BaseDao {
-  async getOne(id, u_id) {
+  async getOne(id, uId) {
     const sql = `
       SELECT
         t.*,
@@ -27,7 +27,7 @@ class Dao extends BaseDao {
     const params = [];
     let i = 0;
     params[i++] = id;
-    params[i] = u_id;
+    params[i] = uId;
     const result = await db.run(sql, params);
     return result[0];
   }

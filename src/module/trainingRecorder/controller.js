@@ -26,8 +26,10 @@ exports.getRecordList = async ctx => {
 
 };
 
-exports.getRecord = async ctx => {
+exports.getTraingingRecord = async ctx => {
   const { id } = ctx.params;
-  const result = await dao.selectOne({ del: 0, id });
-  ctx.body = new Success({ ...result });
+  const { user } = ctx.state;
+
+  const result = await dao.getTrainingRecord(id, user.id);
+  ctx.body = new Success(result);
 };
