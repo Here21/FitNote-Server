@@ -3,7 +3,7 @@ const authorization = require('../../middleware/Authorization');
 
 const router = [
   { method: 'POST', route: '/training', handlers: [authorization.check, controller.addTraining] },
-  { method: 'PUT', route: '/training/:id', handlers: [authorization.check, controller.updateTraining] },
+  { method: 'DELETE', route: '/training/:id', handlers: [authorization.check, controller.removeTraining] },
   { method: 'GET', route: '/training', handlers: [authorization.check, controller.getTrainingList] },
   { method: 'GET', route: '/training/:id', handlers: [authorization.check, controller.getTraining] }
 ];
