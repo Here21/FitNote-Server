@@ -3,7 +3,7 @@ const db = require('../../util/db');
 
 const tableName = 'ttraining';
 const columns = [
-  'action_id', 'u_id'
+  'action_id', 'u_id', 'status', 'goal'
 ];
 
 class Dao extends BaseDao {
