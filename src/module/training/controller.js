@@ -19,7 +19,7 @@ exports.removeTraining = async ctx => {
 
 exports.getTrainingList = async ctx => {
   const { user } = ctx.state;
-  const result = await dao.select({ del: 0, u_id: user.id });
+  const result = await dao.getTraningList(user.id);
   ctx.body = new Success(result);
 };
 
