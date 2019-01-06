@@ -4,6 +4,8 @@ const C = require('../../util/const');
 
 exports.addAction = async ctx => {
   const data = ctx.request.body;
+  const { user } = ctx.state;
+  data.u_id = user.id;
   const id = await dao.add(data);
   ctx.body = new Success({ id }, '添加成功');
 };
@@ -21,7 +23,8 @@ exports.updateAction = async ctx => {
 };
 
 exports.getActionsList = async ctx => {
-  const result = await dao.select({ del: 0 });
+  const { user } = ctx.state;
+  const result = await dao.select({ del: 0, u_id: user.id });
   ctx.body = new Success(result);
 };
 
