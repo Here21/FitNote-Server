@@ -13,7 +13,8 @@ exports.addAction = async ctx => {
 exports.updateAction = async ctx => {
   const data = ctx.request.body;
   const { id } = ctx.params;
-  const action = await dao.getOne(id);
+  const { user } = ctx.state;
+  const action = await dao.selectOne({ del: 0, id, u_id: user.id });
   if (action) {
     await dao.update(data, { id });
     ctx.body = new Success(null, '修改成功');
@@ -30,6 +31,7 @@ exports.getActionsList = async ctx => {
 
 exports.getAction = async ctx => {
   const { id } = ctx.params;
-  const result = await dao.selectOne({ del: 0, id });
+  const { user } = ctx.state;
+  const result = await dao.selectOne({ del: 0, id, u_id: user.id });
   ctx.body = new Success({ ...result });
 };
