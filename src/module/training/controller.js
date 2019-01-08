@@ -46,7 +46,7 @@ exports.completeTraining = async ctx => {
         });
       });
       await Promise.all(all);
-      ctx.body = new Success('训练完成');
+      ctx.body = new Success(null, '训练完成');
     } else {
       ctx.body = new Error(C.ERROR_CODE.NO_RES, '没有找到训练项目');
     }

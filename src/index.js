@@ -21,7 +21,7 @@ app.use(cors({
   // TODO: 配合本地开发，前端跨域携带cookie，服务器使用Nginx转发不存在跨域问题，正式环境删除一下两行，解注释第一行
   origin: 'http://localhost:3000',
   credentials: true,
-  allowMethods: ['GET', 'POST'],
+  allowMethods: ['GET', 'POST', 'PUT'],
   maxAge: 86400
 }));
 app.use(bodyParser());
