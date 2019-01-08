@@ -31,7 +31,8 @@ class Dao extends BaseDao {
     const result = await db.run(sql, params);
     return result[0];
   }
-  async getTraningList(uId) {
+  // status 0：未完成 1：完成
+  async getTrainingList(uId, status = 0) {
     const sql = `
       SELECT
         t.*,
@@ -47,11 +48,13 @@ class Dao extends BaseDao {
         t.del = 0 
         AND a.del = 0
         AND t.u_id = ? 
+        AND t.status = ? 
         AND date_format( t.createon, '%Y-%m-%d' ) = date_format( now( ), '%Y-%m-%d' )
     `;
     const params = [];
     let i = 0;
-    params[i] = uId;
+    params[i++] = uId;
+    params[i] = status;
     const result = await db.run(sql, params);
     return result;
   }
