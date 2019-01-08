@@ -49,7 +49,7 @@ class Dao extends BaseDao {
         AND a.del = 0
         AND t.u_id = ? 
         AND t.status = ? 
-        AND date_format( t.createon, '%Y-%m-%d' ) = date_format( now( ), '%Y-%m-%d' )
+        ${status ? '' : "AND date_format( t.createon, '%Y-%m-%d' ) = date_format( now( ), '%Y-%m-%d' )"}
     `;
     const params = [];
     let i = 0;

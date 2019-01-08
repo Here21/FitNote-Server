@@ -23,6 +23,12 @@ exports.getTrainingList = async ctx => {
   ctx.body = new Success(result);
 };
 
+exports.getTrainingHistoryList = async ctx => {
+  const { user } = ctx.state;
+  const result = await dao.getTrainingList(user.id, 1);
+  ctx.body = new Success(result);
+};
+
 exports.getTraining = async ctx => {
   const { id } = ctx.params;
   const { user } = ctx.state;
