@@ -1,6 +1,8 @@
 const dao = require('./dao');
 const { Success, Error } = require('../../util/messageBean');
 const C = require('../../util/const');
+const moment = require('moment');
+const _ = require('lodash');
 
 exports.addTraining = async ctx => {
   const data = ctx.request.body;
@@ -25,7 +27,11 @@ exports.getTrainingList = async ctx => {
 
 exports.getTrainingHistoryList = async ctx => {
   const { user } = ctx.state;
-  const result = await dao.getTrainingList(user.id, 1);
+  const list = await dao.getTrainingList(user.id, 1);
+  list.forEach(item => {
+    item.date = moment(item.createon).format('YYYY-MM-DD');
+  });
+  const result = _.groupBy(list, 'date');
   ctx.body = new Success(result);
 };
 
