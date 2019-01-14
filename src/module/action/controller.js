@@ -35,3 +35,10 @@ exports.getAction = async ctx => {
   const result = await dao.selectOne({ del: 0, id, u_id: user.id });
   ctx.body = new Success({ ...result });
 };
+
+exports.removeAction = async ctx => {
+  const { id } = ctx.params;
+  const { user } = ctx.state;
+  await dao.delete({ id, u_id: user.id });
+  ctx.body = new Success(null, '删除成功');
+};

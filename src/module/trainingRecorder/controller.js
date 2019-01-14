@@ -29,7 +29,13 @@ exports.getRecordList = async ctx => {
 exports.getTraingingRecord = async ctx => {
   const { id } = ctx.params;
   const { user } = ctx.state;
-
   const result = await dao.getTrainingRecord(id, user.id);
   ctx.body = new Success(result);
+};
+
+exports.removeRecord = async ctx => {
+  const { id } = ctx.params;
+  const { user } = ctx.state;
+  await dao.delete({ id, u_id: user.id });
+  ctx.body = new Success(null, '删除记录成功');
 };
