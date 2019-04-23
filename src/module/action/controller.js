@@ -42,3 +42,7 @@ exports.removeAction = async ctx => {
   await dao.delete({ id, u_id: user.id });
   ctx.body = new Success(null, '删除成功');
 };
+
+exports.getActionByPart = async ctx => {
+
+};
