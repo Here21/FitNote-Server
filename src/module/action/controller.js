@@ -44,5 +44,17 @@ exports.removeAction = async ctx => {
 };
 
 exports.getActionByPart = async ctx => {
+  const { id } = ctx.params;
+  const { user } = ctx.state;
+  const result = await dao.select({ del: 0, u_id: user.id, part: id });
+  ctx.body = new Success(result);
+};
 
+exports.updateActionBatch = async ctx => {
+  // body 应包含 { origin partId, new partId }
+  // 处于安全，这里只更新part
+  const { oldPId, newPId } = ctx.request.body;
+  const { user } = ctx.state;
+  const dataSource = await dao.select({ del: 0, u_id: user.id, part: oldPId });
+  const result = await dao.updateBatch(dataSource, newPId);
 };
