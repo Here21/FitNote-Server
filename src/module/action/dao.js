@@ -26,7 +26,7 @@ class Dao extends BaseDao {
         id IN ( ${ids} ) 
         AND del = 0;
     `;
-    console.log(sql);
+    return db.run(sql);
   }
 }
 

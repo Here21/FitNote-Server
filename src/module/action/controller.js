@@ -56,5 +56,9 @@ exports.updateActionBatch = async ctx => {
   const { oldPId, newPId } = ctx.request.body;
   const { user } = ctx.state;
   const dataSource = await dao.select({ del: 0, u_id: user.id, part: oldPId });
-  const result = await dao.updateBatch(dataSource, newPId);
+  if (dataSource.length === 0) {
+    ctx.body = new Error(C.ERROR_CODE.NO_RES, '无可更新数据');
+  }
+  await dao.updateBatch(dataSource, newPId);
+  ctx.body = new Success(null, '批量更新成功');
 };
